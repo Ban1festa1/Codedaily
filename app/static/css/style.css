@@ -1,0 +1,185 @@
+body {
+    background-color: #0d0d0d;
+    font-family: 'Fira Code', monospace;
+    color: #f5f5f5;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+}
+
+h2,
+h3 {
+    color: #bb86fc;
+}
+
+form {
+    margin-bottom: 1.5rem;
+}
+
+textarea,
+input[type="text"],
+input[type="datetime-local"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    background: #111;
+    border: 1px solid #444;
+    color: #f5f5f5;
+    font-family: 'Fira Code', monospace;
+}
+
+button {
+    background: #8000ff;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #a04cff;
+}
+
+.note {
+    background: #1e1e1e;
+    padding: 15px;
+    border-left: 4px solid #8000ff;
+    margin-bottom: 10px;
+}
+
+.note.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.note-actions {
+    margin-top: 10px;
+}
+
+.note-actions a {
+    text-decoration: none;
+    color: #03dac6;
+    font-size: 0.9rem;
+}
+
+.stats {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-left: 3px solid #6200ea;
+}
+
+.logout {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #ff4081;
+    text-decoration: none;
+}
+
+canvas#bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.ai-box {
+    background: #1a1a2e;
+    border-left: 4px solid #8000ff;
+    padding: 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.ai-box h3 {
+    color: #bb86fc;
+    font-size: 1.2rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-box textarea {
+    width: 100%;
+    resize: none;
+    height: 80px;
+    background: #111;
+    border: 1px dashed #555;
+    color: #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: 'Fira Code', monospace;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+
+.auth-box {
+    max-width: 400px;
+    margin: 10vh auto;
+    background: rgba(30, 0, 50, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #8000ff80;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.auth-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 10px 0;
+    background: #1e1e1e;
+    border: 1px solid #555;
+    color: #eee;
+    font-family: 'Fira Code', monospace;
+}
+
+.auth-form button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #8000ff;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #a566ff;
+}
+
+textarea,
+input,
+select,
+button {
+    border-radius: 8px;
+}
+
+.switch {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.switch a {
+    color: #b266ff;
+    text-decoration: none;
+}

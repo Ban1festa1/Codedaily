@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Привет, {{ current_user.username }}!</h2>
+
+<!-- Статистика -->
+<div class="stats">
+  <code># Всего: {{ stats.total }} | ✅ Выполнено: {{ stats.completed }} | 🔄 В процессе: {{ stats.pending }}</code>
+</div>
+
+<!-- Фильтрация -->
+<form method="GET" class="filter-form">
+  <label for="category">Фильтр по категории:</label>
+  <select name="category" onchange="this.form.submit()">
+    <option value="">Все</option>
+    {% for cat in categories %}
+      <option value="{{ cat }}" {% if request.args.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<!-- Форма добавления -->
+<form method="POST" class="note-form">
+  <textarea name="note" placeholder="Новая заметка..." required></textarea>
+  <input type="text" name="category" placeholder="Категория (например, Учёба)">
+  <input type="datetime-local" name="deadline">
+  <button type="submit">➕ Добавить</button>
+</form>
+
+<!-- Список заметок -->
+<div class="notes">
+  {% for note in notes %}
+  <div class="note {% if note.completed %}completed{% endif %}">
+    <p>{{ note.content }}</p>
+    <small>
+      {% if note.category %}📁 {{ note.category }} | {% endif %}
+      🕒 {{ note.timestamp.strftime('%Y-%m-%d %H:%M') }}
+      {% if note.deadline %} | ⏰ До: {{ note.deadline.strftime('%Y-%m-%d %H:%M') }}{% endif %}
+    </small>
+    <div class="note-actions">
+      <a href="{{ url_for('main.toggle_complete', note_id=note.id) }}">
+        {% if note.completed %}↩️ Восстановить{% else %}✅ Завершить{% endif %}
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- AI-помощник -->
+<div class="ai-box">
+  <h3>🤖 Спроси AI</h3>
+  <textarea placeholder="Например: «Что мне делать сегодня?»" disabled>⚠️ Модель не подключена в оффлайн-версии. Это заглушка.</textarea>
+</div>
+
+<a class="logout" href="{{ url_for('main.logout') }}">🚪 Выйти</a>
+{% endblock %}

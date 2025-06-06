@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="auth-box">
+  <h2>🔐 Вход в CodeDaily</h2>
+  <form method="POST" class="auth-form">
+    <input type="text" name="username" placeholder="Логин" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+    <button type="submit">🚀 Войти</button>
+    <p class="switch">Нет аккаунта? <a href="{{ url_for('main.register') }}">Зарегистрироваться</a></p>
+  </form>
+</div>
+{% endblock %}
